@@ -5,9 +5,13 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Header from './components/Header/Header';
 import Products from './components/Products/Products';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import AuthProvider from './Context/AuthProvider';
 function App() {
   return (
     <div>
+      <AuthProvider>
       <Router>
         <Header></Header>
         <Switch>
@@ -21,8 +25,17 @@ function App() {
           <Route path='/products'>
             <Products></Products>
           </Route>
+
+          <Route path='/login'>
+            <Login></Login>
+          </Route>
+
+          <Route path='/register'>
+            <Register></Register>
+          </Route>
         </Switch>
       </Router>
+      </AuthProvider>
       
     </div>
   );

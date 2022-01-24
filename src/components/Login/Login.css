@@ -1,0 +1,8 @@
+.login-container{
+    font-family: 'Nunito', sans-serif;
+}
+.login-form{
+    box-shadow: 10px 10px 60px rgb(189, 180, 180);
+    padding: 15px;
+    border-radius: 10px;
+}
