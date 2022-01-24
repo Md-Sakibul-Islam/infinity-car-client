@@ -1,0 +1,8 @@
+.products-container{
+    margin-top:40px;
+    font-family: 'Nunito', sans-serif;
+}
+.products-text p{
+    font-size: 20px;
+    font-weight: bold;
+}
