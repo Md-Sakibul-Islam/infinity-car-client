@@ -9,6 +9,7 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import AuthProvider from './Context/AuthProvider';
 import Booking from './components/Booking/Booking';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -27,9 +28,9 @@ function App() {
           <Route path='/products'>
             <Products></Products>
           </Route>
-        <Route path='/buynow/:id'>
+        <PrivateRoute path='/buynow/:id'>
           <Booking></Booking>
-        </Route>
+        </PrivateRoute>
 
           <Route path='/login'>
             <Login></Login>

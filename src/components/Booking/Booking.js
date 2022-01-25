@@ -1,4 +1,5 @@
 import React from "react";
+import { useRef } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Button, Col, FloatingLabel, Form, Row } from "react-bootstrap";
@@ -8,6 +9,11 @@ import "./Booking.css";
 const Booking = () => {
   const { user } = useAuth();
   const { id } = useParams();
+
+  //ref 
+  const phoneRef = useRef();
+  const addressRef = useRef();
+
   const [product, setProduct] = useState({});
   const url = `http://localhost:5000/products/${id}`;
   useEffect(() => {
@@ -16,8 +22,32 @@ const Booking = () => {
       .then((data) => setProduct(data));
   }, [url]);
 
+  // post api for orders
+  const handleOrder = e => {
+    e.preventDefault();
+      const phone = phoneRef.current.value;
+      const address = addressRef.current.value;
+    
+      const order ={
+        name:user.displayName,
+        email:user.email,
+        phone:phone,
+        address:address
+      }
 
-// post api for orders
+
+    fetch(`http://localhost:5000/orders`,{
+      method:'post',
+      headers:{
+        'content-type':'application/json'
+      },
+      body:JSON.stringify(order)
+    }).then(res => res.json())
+    .then(data => {
+      console.log(data)
+    })
+
+  }
 
   return (
     <div className="container buy-now-container mt-4">
@@ -32,16 +62,23 @@ const Booking = () => {
 
       <div className="container mt-5">
         <Row>
-          <Col className="me-auto border border-1 rounded-3" sm={12} md={5} lg={5}>
-            <img src={product?.img} className="rounded img-fluid mb-2 mt-1" alt="" />
+          <Col
+            className="me-auto mb-4 border border-1 rounded-3"
+            sm={12}
+            md={5}
+            lg={5}
+          >
+            <img
+              src={product?.img}
+              className="rounded img-fluid mb-2 mt-1"
+              alt=""
+            />
             <p className="product-info">{product?.describe}</p>
           </Col>
           <Col className="me-auto" sm={12} md={5} lg={5}>
-              
-            <Form className=" login-form">
-            <h4>{product?.name}</h4>
-            <h5>Price: {product?.price} $</h5>
-
+            <Form onSubmit={handleOrder} className=" login-form">
+              <h4>{product?.name}</h4>
+              <h5>Price: {product?.price} $</h5>
 
               <Form.Group className="mb-3" controlId="formBasicText">
                 <Form.Control
@@ -62,11 +99,15 @@ const Booking = () => {
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicNumber">
-                <Form.Control placeholder="Phone Number"  type="number" />
+                <Form.Control ref={phoneRef} placeholder="Phone Number" type="number" />
               </Form.Group>
-              <FloatingLabel className="mb-3" controlId="floatingTextarea1" label="address">
+              <FloatingLabel
+                className="mb-3"
+                controlId="floatingTextarea1"
+                label="address"
+              >
                 <Form.Control
-                
+                ref={addressRef}
                   as="textarea"
                   placeholder="address"
                   style={{ height: "100px" }}
@@ -74,7 +115,7 @@ const Booking = () => {
               </FloatingLabel>
 
               <Button variant="success" type="submit">
-              Confirm
+                Confirm
               </Button>
             </Form>
           </Col>

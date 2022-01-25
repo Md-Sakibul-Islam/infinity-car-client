@@ -10,10 +10,12 @@ const Login = () => {
   const history = useHistory();
   const location = useLocation();
 
+  const redirectURL = location.state?.from || '/home'
+
   // Ref 
   const emailRef = useRef();
   const passwordRef = useRef();
-  const{loginUser,setUser,setError,error} = useAuth();
+  const{loginUser,setUser,setError,error,isLoading,setIsLoading} = useAuth();
 
   // user login function
   const handleOnLogin = e=>{
@@ -21,15 +23,16 @@ const Login = () => {
     const email= emailRef.current.value;
     const password = passwordRef.current.value;
     loginUser(email,password)
+      setIsLoading(true)
     .then((userCredential) => {
       const user = userCredential.user;
       setUser(user);
-      history.push('/home')
+      history.push(redirectURL)
     })
     .catch((error) => {
       const errorMessage = error.message;
       setError(errorMessage);
-    });
+    }).finally(()=>setIsLoading(false));
   }
   return (
     <div className="container login-container mt-5">

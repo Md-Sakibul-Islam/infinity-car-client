@@ -12,7 +12,7 @@ firebaseAuth();
 const useFirebase = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
-
+  const [isLoading,setIsLoading]= useState(true);
   // auth and provider
   const auth = getAuth();
 
@@ -34,12 +34,14 @@ const useFirebase = () => {
   //observed
 
   useEffect(() => {
+    setIsLoading(true)
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
       } else {
         setUser({});
       }
+      setIsLoading(false)
     });
     return () => unsubscribe;
   }, []);
@@ -52,13 +54,14 @@ const useFirebase = () => {
 
   // logOut user
   const logOutUser = () => {
+    setIsLoading(true)
     signOut(auth)
       .then(() => {
         // Sign-out successful.
       })
       .catch((error) => {
         // An error happened.
-      });
+      }).finally(()=> setIsLoading(false));
   };
 
   return {
@@ -70,6 +73,8 @@ const useFirebase = () => {
     loginUser,
     logOutUser,
     updateProfileName,
+    isLoading,
+    setIsLoading
   };
 };
 
