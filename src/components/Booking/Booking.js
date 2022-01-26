@@ -30,6 +30,7 @@ const Booking = () => {
     
       const order ={
         name:user.displayName,
+        productName:product.name,
         email:user.email,
         phone:phone,
         address:address
@@ -44,7 +45,7 @@ const Booking = () => {
       body:JSON.stringify(order)
     }).then(res => res.json())
     .then(data => {
-      console.log(data)
+     console.log(data)
     })
 
   }
@@ -120,6 +121,7 @@ const Booking = () => {
             </Form>
           </Col>
         </Row>
+        
       </div>
       <br />
       <br />

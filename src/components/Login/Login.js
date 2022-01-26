@@ -22,8 +22,8 @@ const Login = () => {
     e.preventDefault();
     const email= emailRef.current.value;
     const password = passwordRef.current.value;
+     setIsLoading(true)
     loginUser(email,password)
-      setIsLoading(true)
     .then((userCredential) => {
       const user = userCredential.user;
       setUser(user);
@@ -32,7 +32,7 @@ const Login = () => {
     .catch((error) => {
       const errorMessage = error.message;
       setError(errorMessage);
-    }).finally(()=>setIsLoading(false));
+    }).finally(()=> setIsLoading(false));
   }
   return (
     <div className="container login-container mt-5">

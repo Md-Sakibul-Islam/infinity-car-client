@@ -6,7 +6,7 @@ import useAuth from "../../hooks/useAuth";
 import "./Header.css";
 const Header = () => {
   const history = useHistory();
-  const { user,logOutUser } = useAuth();
+  const { user, logOutUser } = useAuth();
 
   const handleLoginPage = () => {
     history.push("/login");
@@ -27,10 +27,18 @@ const Header = () => {
               </Nav.Link>
             </Nav>
             <Nav>
-              <span className="text-white mt-2">{user?.displayName}</span>
 
+             
               {user.email ? (
-                <Button variant="dark" onClick={logOutUser}>LogOut</Button>
+                <>
+                  <Nav.Link as={Link} to="/dashboard">
+                    Dashboard
+                  </Nav.Link>
+                  <span className="text-white mt-2">{user?.displayName}</span>
+                  <Button variant="dark" onClick={logOutUser}>
+                    LogOut
+                  </Button>
+                </>
               ) : (
                 <Button onClick={handleLoginPage} variant="dark">
                   Login
