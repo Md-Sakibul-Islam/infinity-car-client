@@ -11,8 +11,11 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import AddProduct from "../AddProduct/AddProduct";
 import DashboardHome from "../DashboardHome/DashboardHome";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import ManageAllOrders from "../ManageAllOrders/ManageAllOrders";
+import ManageProduct from "../ManageProduct/ManageProduct";
 import MangeOrder from "../MangeOrder/MangeOrder";
 import Payment from "../Payment/Payment";
 import Review from "../Review/Review";
@@ -125,6 +128,13 @@ const Dashboard = () => {
             <Route path={`${path}/makeadmin`}>
               <MakeAdmin></MakeAdmin>
             </Route>
+            <Route path={`${path}/addproduct`}>
+              <AddProduct></AddProduct>
+            </Route>
+            <Route path={`${path}/manageproduct`}>
+              <ManageProduct></ManageProduct>
+            </Route>
+            <Route path={`${path}/manageallorders`}><ManageAllOrders></ManageAllOrders></Route>
           </Switch>
         </Col>
       </Row>
