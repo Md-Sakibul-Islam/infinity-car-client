@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Row } from "react-bootstrap";
 import Banner from "../Banner/Banner";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 import Product from "../Product/Product";
 import './Products.css'
 const Products = () => {
@@ -15,6 +17,7 @@ const Products = () => {
   }, []);
   return (
     <>
+    <Header></Header>
       <Banner></Banner>
       <div className="products-container">
       <div className="container products-text text-center">
@@ -33,15 +36,8 @@ const Products = () => {
       <br />
       <br />
       <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+     
+      <Footer></Footer>
     </>
   );
 };

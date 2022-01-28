@@ -74,6 +74,11 @@ const Dashboard = () => {
           {admin && (
             <>
              <p>
+                <Link className="dash-item" to='/home'>
+                  Back To Home
+                </Link>
+              </p>
+             <p>
                 <Link className="dash-item" to={`${url}`}>
                   Dashboard
                 </Link>

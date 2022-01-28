@@ -26,12 +26,7 @@ const HomeProducts = () => {
           ))}
         </Row>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+     
     </div>
   );
 };
