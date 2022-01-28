@@ -3,6 +3,7 @@ import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import infinityLog from '../../images/icon/infinity.png'
 import "./Header.css";
 const Header = () => {
   const history = useHistory();
@@ -15,7 +16,7 @@ const Header = () => {
     <div className="nav-item-container">
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#">Logo</Navbar.Brand>
+          <Navbar.Brand href="#"><img src={infinityLog} className="w-25" alt="" /> <small>Infinity</small></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto">

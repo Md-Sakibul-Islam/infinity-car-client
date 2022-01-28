@@ -97,7 +97,7 @@ const Dashboard = () => {
               <p>
                 {" "}
                 <Link className="dash-item" to={`${url}/addproduct`}>
-                  Add Product
+                  Add New Product
                 </Link>
               </p>
               <p>

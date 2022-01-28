@@ -11,8 +11,8 @@ const Product = (props) => {
   }
   return (
     <div>
-      <Col>
-        <Card className='product-card'>
+      <Col className="mt-5">
+        <Card data-aos="fade-up" className='product-card card-div'>
           <Card.Img variant="top" src={img} />
           <Card.Body>
             <Card.Title className="card-title">{name}</Card.Title>

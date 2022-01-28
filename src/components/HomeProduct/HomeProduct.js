@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
-
+import './HomeProduct.css'
 const HomeProduct = ({product}) => {
   const history = useHistory();
     const { img, name, describe, price ,_id} =product;
@@ -12,7 +12,7 @@ const HomeProduct = ({product}) => {
     return (
         <div>
       <Col>
-        <Card>
+        <Card data-aos="fade-up" className='card-div'>
           <Card.Img variant="top" src={img} />
           <Card.Body>
             <Card.Title>{name}</Card.Title>

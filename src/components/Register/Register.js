@@ -59,7 +59,7 @@ const Register = () => {
   return (
     <>
     <Header></Header>
-      <div className="container login-container mt-5">
+      <div data-aos="fade-up" className="container login-container mt-5">
         <Row className="d-flex justify-content-center">
           <Col sm={12} md={6} lg={6}>
             <Form onSubmit={handleSubmit} className=" login-form">

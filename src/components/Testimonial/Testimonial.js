@@ -8,7 +8,7 @@ const Testimonial = ({ review }) => {
   return (
     <>
       <Col className="testimonial">
-        <Card>
+        <Card data-aos="fade-up">
           <div className="d-flex justify-content-center align-items-center">
             <Card.Img variant="top" className="profile-img mt-2" src={userImg} />{" "}
             <Card.Title>{name}</Card.Title>

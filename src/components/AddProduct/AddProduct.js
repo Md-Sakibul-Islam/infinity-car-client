@@ -40,7 +40,7 @@ const AddProduct = () => {
   };
   return (
     <div>
-      <h4>Add Product</h4>
+      <h4>Add New Product</h4>
       <div className="container">
         <Row>
           <Col sm={12} md={7} lg={7}>

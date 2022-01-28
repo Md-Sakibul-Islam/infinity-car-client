@@ -1,0 +1,16 @@
+.card-div {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 10px 10px 15px lightgray;
+  overflow: hidden;
+}
+
+.card-div img {
+  transition: all;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+  transform: scale(1);
+}
+
+.card-div:hover img {
+    transform: scale(1.05);
+  }
