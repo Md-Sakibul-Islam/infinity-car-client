@@ -1,0 +1,17 @@
+.blog-container{
+    font-family: 'Nunito', sans-serif;
+}
+.blog-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.blog-text {
+  display: inline-block;
+}
+.blog-text hr {
+  margin-left: 23%;
+  width: 100px;
+  height: 5px;
+  color: red;
+}

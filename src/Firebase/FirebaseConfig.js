@@ -1,11 +1,9 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyCKzOOn381qWV7UQUNMXn_-hub04IlbpK8",
-    authDomain: "infinity-car-d7c25.firebaseapp.com",
-    projectId: "infinity-car-d7c25",
-    storageBucket: "infinity-car-d7c25.appspot.com",
-    messagingSenderId: "396912480554",
-    appId: "1:396912480554:web:612782d51a78d58904ce53"
+    apiKey:process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain:process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId:process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket:process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId:process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId:process.env.REACT_APP_FIREBASE_APP_ID,
   };
-
-
 export default firebaseConfig;
