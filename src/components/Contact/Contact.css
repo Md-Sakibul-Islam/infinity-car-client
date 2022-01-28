@@ -1,0 +1,15 @@
+.contact{
+    background-color: gainsboro;
+    padding: 5%;
+}
+.contact-form hr{
+    display: inline-block;
+    width: 60px;
+    height: 5px;
+    color: red;
+
+}
+.contact-img{
+    width: 60px;
+    height: 60px;
+}

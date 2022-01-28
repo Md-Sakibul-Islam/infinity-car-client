@@ -1,7 +1,5 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import appStore from '../../images/appstore.png'
-import palyStore from '../../images/playstore.png'
 import "./Footer.css";
 const Footer = () => {
   return (

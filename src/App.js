@@ -11,6 +11,7 @@ import AuthProvider from './Context/AuthProvider';
 import Booking from './components/Booking/Booking';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Dashboard from './components/Dashboard/Dashboard';
+import Contact from './components/Contact/Contact';
 
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
 
           <Route path='/products'>
             <Products></Products>
+          </Route>
+          <Route path='/contact'>
+           <Contact></Contact>
           </Route>
         <PrivateRoute path='/buynow/:id'>
           <Booking></Booking>

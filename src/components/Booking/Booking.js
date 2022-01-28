@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { Button, Col, FloatingLabel, Form, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 import "./Booking.css";
 const Booking = () => {
   const { user } = useAuth();
@@ -51,7 +53,9 @@ const Booking = () => {
   }
 
   return (
-    <div className="container buy-now-container mt-4">
+    < >
+    <Header></Header>
+      <div className="container buy-now-container mt-4"> 
       <div className="text-center">
         <h2>
           <span className="text-danger">Infinity</span> Car
@@ -123,12 +127,13 @@ const Booking = () => {
         </Row>
         
       </div>
+      </div>
       <br />
       <br />
       <br />
-      <br />
-      <br />
-    </div>
+      <Footer></Footer>
+     
+    </>
   );
 };
 

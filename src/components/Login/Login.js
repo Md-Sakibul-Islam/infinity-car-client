@@ -4,6 +4,8 @@ import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 import "./Login.css";
 const Login = () => {
   // history
@@ -35,8 +37,9 @@ const Login = () => {
     }).finally(()=> setIsLoading(false));
   }
   return (
-    <div className="container login-container mt-5">
-      <div className="container">
+    <>
+      <Header></Header>
+      <div className="container login-container mt-5">
         <Row className="d-flex justify-content-center">
           <Col sm={12} md={6} lg={6}>
             <Form onSubmit={handleOnLogin} className=" login-form">
@@ -67,7 +70,11 @@ const Login = () => {
           </Col>
         </Row>
       </div>
-    </div>
+      <br />
+      <br />
+      <br />
+      <Footer></Footer>
+    </>
   );
 };
 
