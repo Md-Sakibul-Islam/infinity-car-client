@@ -1,0 +1,16 @@
+.footer-container{
+    font-family: 'Nunito', sans-serif;
+    background-color: black;
+    color: whitesmoke;
+    padding: 3%;
+
+}
+.footer-container li{
+    list-style: none;
+    margin-left: 6%;
+    line-height: 33px;
+}
+.app-img{
+    width: 200px;
+    height: 200px;
+}

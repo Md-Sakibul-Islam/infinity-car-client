@@ -11,6 +11,7 @@ import AuthProvider from './Context/AuthProvider';
 import Booking from './components/Booking/Booking';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Dashboard from './components/Dashboard/Dashboard';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             <Register></Register>
           </Route>
         </Switch>
+        <Footer></Footer>
       </Router>
       </AuthProvider>
       

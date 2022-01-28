@@ -6,7 +6,10 @@ import "./HomeAbout.css";
 const HomeAbout = () => {
   return (
     <div className="container-fluid">
-      <div className="container home-about mt-5">
+      <div className="container home-about mt-5 mb-5">
+          <div className="text-center mb-5">
+              <h3>A trusted and reputable name <span className="text-danger">Infinity Car</span> </h3>
+          </div>
         <div>
           <Row className="d-flex justify-content-between">
             <Col className="home-about-info mb-4" sm={12} md={5} lg={5}>
