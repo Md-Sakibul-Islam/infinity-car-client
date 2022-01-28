@@ -25,6 +25,7 @@ const handleAdmin =e =>{
     .then(data => {
         if(data.modifiedCount){
             SetSuccess(true);
+            emailRef.current.value=""
         }
     })
    
@@ -52,7 +53,7 @@ const handleAdmin =e =>{
               </Button>
             </Form>
             {
-                success && <Alert variant="success">Admin make Successfully</Alert>
+                success && <Alert variant="success">Admin made Successfully</Alert>
             }
            
           </Col>

@@ -27,10 +27,10 @@ const Contact = () => {
               </h2>
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicText">
-                  <Form.Control type="email" placeholder="Enter Your Name *" />
+                  <Form.Control type="email" required placeholder="Enter Your Name *" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicText">
-                  <Form.Control type="email" placeholder="Enter Email*" />
+                  <Form.Control type="email" required placeholder="Enter Email*" />
                 </Form.Group>
                 <FloatingLabel
                   className="mb-3"
@@ -38,6 +38,7 @@ const Contact = () => {
                   label="Message"
                 >
                   <Form.Control
+                  required
                     as="textarea"
                     placeholder="Leave a Message here"
                     style={{ height: "100px" }}

@@ -30,7 +30,7 @@ const ManageProduct = () => {
     return (
         <div>
       <div className="table-main-container">
-        <h4 className="">Mange All Orders</h4>
+        <h4 className="">Mange All Products</h4>
         <div className="container overflow-scroll">
           <Table striped bordered hover>
             <thead>

@@ -1,7 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,7 +22,8 @@ import Payment from "../Payment/Payment";
 import Review from "../Review/Review";
 import "./Dashboard.css";
 const Dashboard = () => {
-  const { user } = useAuth();
+  const history = useHistory();
+  const { user ,logOutUser} = useAuth();
   let { path, url } = useRouteMatch();
   const [admin, setAdmin] = useState(false);
   useEffect(() => {
@@ -29,6 +31,12 @@ const Dashboard = () => {
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
+
+  const handleLogOut = () =>{
+      logOutUser();
+      history.push('/home')
+
+  }
   return (
     <div className="container-fluid dash">
       <Row className="d-flex justify-content-evenly">
@@ -64,10 +72,7 @@ const Dashboard = () => {
                 </Link>
               </p>
               <p>
-                {" "}
-                <Link className="dash-item" to={`${url}/logout`}>
-                  Logout
-                </Link>
+               <Button onClick={handleLogOut} variant="outline-dark">LogOut</Button>
               </p>
             </>
           )}
@@ -108,10 +113,7 @@ const Dashboard = () => {
                 </Link>
               </p>
               <p>
-                {" "}
-                <Link className="dash-item" to={`${url}/logout`}>
-                  Logout
-                </Link>
+               <Button onClick={handleLogOut} variant="outline-dark">LogOut</Button>
               </p>
             </>
           )}

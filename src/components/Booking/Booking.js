@@ -2,7 +2,8 @@ import React from "react";
 import { useRef } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Button, Col, FloatingLabel, Form, Row } from "react-bootstrap";
+import { Button, Col, FloatingLabel, Form, Row, Spinner } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Footer from "../Footer/Footer";
@@ -11,7 +12,9 @@ import "./Booking.css";
 const Booking = () => {
   const { user } = useAuth();
   const { id } = useParams();
-
+const [loading,setLoading]= useState(false);
+const[message,setMessage]= useState('');
+const history = useHistory();
   //ref 
   const phoneRef = useRef();
   const addressRef = useRef();
@@ -27,6 +30,7 @@ const Booking = () => {
   // post api for orders
   const handleOrder = e => {
     e.preventDefault();
+    setLoading(true);
       const phone = phoneRef.current.value;
       const address = addressRef.current.value;
     
@@ -47,7 +51,13 @@ const Booking = () => {
       body:JSON.stringify(order)
     }).then(res => res.json())
     .then(data => {
-     console.log(data)
+    if(data.insertedId){
+       phoneRef.current.value=''
+      addressRef.current.value=''
+      setLoading(false);
+      setMessage('Thank You! Your Order Was Successfully')
+
+    }
     })
 
   }
@@ -118,6 +128,10 @@ const Booking = () => {
                   style={{ height: "100px" }}
                 />
               </FloatingLabel>
+              {
+                loading && <><Spinner animation="border" variant="success"></Spinner></>
+              }
+              <p>{message}</p>
 
               <Button variant="success" type="submit">
                 Confirm

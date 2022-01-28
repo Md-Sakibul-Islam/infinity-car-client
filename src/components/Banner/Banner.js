@@ -12,25 +12,25 @@ const Banner = () => {
         <Carousel.Item>
           <img className="d-block w-100" src={sliderOne} alt="First slide" />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Infinity Car</h3>
+            <p>	Good Car for Good Moments.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100" src={sliderThree} alt="Second slide" />
 
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Infinity Car</h3>
+            <p>Made only for You</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100" src={sliderTwo} alt="Third slide" />
 
           <Carousel.Caption>
-            <h3>Third slide label</h3>
+            <h3>Infinity Car</h3>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+             Fast Your Car
             </p>
           </Carousel.Caption>
         </Carousel.Item>
@@ -39,9 +39,9 @@ const Banner = () => {
           <img className="d-block w-100" src={sliderFour} alt="Third slide" />
 
           <Carousel.Caption>
-            <h3>Third slide label</h3>
+            <h3>Infinity Car</h3>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            Make love with the roads
             </p>
           </Carousel.Caption>
         </Carousel.Item>

@@ -1,29 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRef } from "react";
-import { Button, Col, FloatingLabel, Form, Row } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  FloatingLabel,
+  Form,
+  Row,
+  Spinner,
+} from "react-bootstrap";
 import useAuth from "../../hooks/useAuth";
 
 const Review = () => {
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
   const { user } = useAuth();
   const messageRef = useRef();
   const ratingRef = useRef();
   const handleReview = (e) => {
     e.preventDefault();
+    setLoading(true);
     const message = messageRef.current.value;
     const rating = ratingRef.current.value;
     const name = user?.displayName;
-    const feedback ={name,message,rating};
-    fetch('http://localhost:5000/review',{
-        method:'post',
-        headers:{
-            'content-type':'application/json'
-        }
-        ,
-        body:JSON.stringify(feedback)
-    }).then(res => res.json())
-    .then(data => {
-        console.log(data)
+    const feedback = { name, message, rating };
+    fetch("http://localhost:5000/review", {
+      method: "post",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(feedback),
     })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          setLoading(false);
+          messageRef.current.value = "";
+          ratingRef.current.value = "";
+          setMessage("Your Rating Was Submitted");
+        }
+      });
   };
   return (
     <div>
@@ -62,6 +77,15 @@ const Review = () => {
                   max={5}
                 />
               </Form.Group>
+
+              {loading && (
+                <div>
+                  {" "}
+                  <Spinner animation="border" variant="success"></Spinner>{" "}
+                </div>
+              )}
+              <p>{message}</p>
+
               <Button className="mb-4" variant="secondary" type="submit">
                 Submit
               </Button>

@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import React, { useRef, useState } from "react";
+import { Button, Col, Form, Row, Spinner } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -8,10 +8,10 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
 const Register = () => {
+  const[loading,setLoading]= useState(false);
   // history
   const history = useHistory();
   const location = useLocation();
-
   const redirectURL = location.state?.from || "/home";
 
   const { setUser, error, setError, userCreate, updateProfileName } = useAuth();
@@ -37,6 +37,7 @@ const Register = () => {
   // handle submit for new user create
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     const name = nameRef.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
@@ -46,10 +47,12 @@ const Register = () => {
         setUser(newUser);
         updateProfileName(name);
         saveUser(name, email);
+        setLoading(false)
         history.push(redirectURL);
       })
       .catch((error) => {
         const errorMessage = error.message;
+        setLoading(false);
         setError(errorMessage);
       });
   };
@@ -101,8 +104,12 @@ const Register = () => {
                   placeholder="Enter Your Password"
                 />
               </Form.Group>
+              {
+                loading && <div><Spinner animation="border" variant="success"></Spinner></div>
+              }
               {error}
-              <Button variant="secondary" type="submit">
+              <br />
+              <Button variant="secondary" className="mt-2" type="submit">
                 Submit
               </Button>
               <p className="mt-2">
