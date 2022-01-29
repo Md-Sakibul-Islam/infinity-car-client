@@ -72,7 +72,7 @@ const Review = () => {
                   required
                   ref={ratingRef}
                   type="number"
-                  placeholder="Enter Rating Number"
+                  placeholder="Enter Rating Number 0-5"
                   min={0}
                   max={5}
                 />

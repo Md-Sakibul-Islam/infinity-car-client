@@ -55,7 +55,7 @@ const history = useHistory();
        phoneRef.current.value=''
       addressRef.current.value=''
       setLoading(false);
-      setMessage('Thank You! Your Order Was Successfully')
+      setMessage('Thank You! Your Order Has Been Successfully')
 
     }
     })
@@ -83,14 +83,17 @@ const history = useHistory();
             md={5}
             lg={5}
           >
+            <div data-aos="fade-right">
             <img
               src={product?.img}
               className="rounded img-fluid mb-2 mt-1"
               alt=""
             />
             <p className="product-info">{product?.describe}</p>
+            </div>
           </Col>
-          <Col className="me-auto" sm={12} md={5} lg={5}>
+          <Col  className="me-auto" sm={12} md={5} lg={5}>
+            <div data-aos="fade-left">
             <Form onSubmit={handleOrder} className=" login-form">
               <h4>{product?.name}</h4>
               <h5>Price: {product?.price} $</h5>
@@ -137,6 +140,9 @@ const history = useHistory();
                 Confirm
               </Button>
             </Form>
+            </div>
+
+
           </Col>
         </Row>
         
