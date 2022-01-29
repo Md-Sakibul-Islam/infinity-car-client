@@ -20,7 +20,7 @@ const history = useHistory();
   const addressRef = useRef();
 
   const [product, setProduct] = useState({});
-  const url = `http://localhost:5000/products/${id}`;
+  const url = `https://shielded-dusk-28661.herokuapp.com/products/${id}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -43,7 +43,7 @@ const history = useHistory();
       }
 
 
-    fetch(`http://localhost:5000/orders`,{
+    fetch(`https://shielded-dusk-28661.herokuapp.com/orders`,{
       method:'post',
       headers:{
         'content-type':'application/json'

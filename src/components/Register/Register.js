@@ -23,7 +23,7 @@ const Register = () => {
   // save user data in mongodb
   const saveUser = (name, email) => {
     const user = { name, email };
-    fetch("http://localhost:5000/users", {
+    fetch("https://shielded-dusk-28661.herokuapp.com/users", {
       method: "post",
       headers: {
         "content-type": "application/json",

@@ -14,7 +14,7 @@ const handleAdmin =e =>{
 
     const email = emailRef.current.value;
     const admin = {email}
-    fetch('http://localhost:5000/users',{
+    fetch('https://shielded-dusk-28661.herokuapp.com/users',{
         method:'put',
         headers:{
             'content-type':'application/json'

@@ -7,14 +7,14 @@ import trash from '../../images/icon/trash.png'
 const ManageProduct = () => {
     const[products,setProducts]= useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/products')
+        fetch('https://shielded-dusk-28661.herokuapp.com/products')
         .then(res=> res.json())
         .then(data => setProducts(data))
     },[])
     const handleDelete = id => {
         const yes = window.confirm("Are You Sure , You want to delete?");
     if (yes) {
-      fetch(`http://localhost:5000/products/${id}`, {
+      fetch(`https://shielded-dusk-28661.herokuapp.com/products/${id}`, {
         method: "delete",
       })
         .then((res) => res.json())

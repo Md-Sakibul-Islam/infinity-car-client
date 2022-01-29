@@ -23,7 +23,7 @@ const Review = () => {
     const rating = ratingRef.current.value;
     const name = user?.displayName;
     const feedback = { name, message, rating };
-    fetch("http://localhost:5000/review", {
+    fetch("https://shielded-dusk-28661.herokuapp.com/review", {
       method: "post",
       headers: {
         "content-type": "application/json",

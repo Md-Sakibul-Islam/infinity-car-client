@@ -20,7 +20,7 @@ const AddProduct = () => {
     const price = priceRef.current.value;
 
     const product = { img, name, describe, price };
-    fetch("http://localhost:5000/products", {
+    fetch("https://shielded-dusk-28661.herokuapp.com/products", {
       method: "post",
       headers: {
         "content-type": "application/json",

@@ -9,7 +9,7 @@ const MangeOrder = () => {
   const { user } = useAuth();
   const [myOrder, setMyOrder] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/orders/?email=${user.email}`)
+    fetch(`https://shielded-dusk-28661.herokuapp.com/orders/?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setMyOrder(data));
   }, [user.email]);
@@ -17,7 +17,7 @@ const MangeOrder = () => {
   const handleDelete = (id) => {
     const yes = window.confirm("Are You Sure , You want to delete?");
     if (yes) {
-      fetch(`http://localhost:5000/orders/${id}`, {
+      fetch(`https://shielded-dusk-28661.herokuapp.com/orders/${id}`, {
         method: "delete",
       })
         .then((res) => res.json())

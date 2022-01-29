@@ -6,7 +6,7 @@ import trash from "../../images/icon/trash.png";
 const ManageAllOrders = () => {
   const [allOrder, SetAllOrder] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/allorders")
+    fetch("https://shielded-dusk-28661.herokuapp.com/allorders")
       .then((res) => res.json())
       .then((data) => SetAllOrder(data));
   }, []);
@@ -14,7 +14,7 @@ const ManageAllOrders = () => {
   const handleDelete = (id) => {
     const yes = window.confirm("Are You Sure , You want to delete?");
     if (yes) {
-      fetch(`http://localhost:5000/allorders/${id}`, {
+      fetch(`https://shielded-dusk-28661.herokuapp.com/allorders/${id}`, {
         method: "delete",
       })
         .then((res) => res.json())
